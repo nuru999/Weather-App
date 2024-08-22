@@ -6,10 +6,4 @@ Displays top news headlines from the US.
 News articles include a title, image, and brief description.
 Each news item has a "Read More" button linking to the full article.
 
-Installation
-Clone the repository:
 
-bash
-Copy code
-git clone https://github.com/your-username/news-app.git
-cd news-app
