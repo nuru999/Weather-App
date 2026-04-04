@@ -331,6 +331,7 @@ body {
     font-size: 72px;
     font-weight: bold;
     background: linear-gradient(135deg, #fff, var(--accent-cyan));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 10px 0;
