@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atmosphere | Weather App</title>
+    <meta name="description" content="Modern weather app with real-time forecasts">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,32 +18,32 @@
     </div>
 
     <div class="container">
-        <div class="weather-card">
+        <div class="weather-card" id="weather-card">
             <div class="search-container">
                 <div class="search-box">
-                    <input type="text" class="search-input" placeholder="Search city..." spellcheck="false">
-                    <button class="search-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
+                    <input type="text" class="search-input" placeholder="Search city (e.g Nairobi, London...)" spellcheck="false">
+                    <button class="search-btn" title="Search">🔍</button>
                 </div>
-                <button class="location-btn" title="Use current location">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"></circle>
-                        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-                    </svg>
-                </button>
+                <button class="location-btn" title="Use current location">📍</button>
+                <button class="unit-toggle" title="Toggle °C/°F">°C</button>
             </div>
 
-            <div class="error-message">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                </svg>
-                <p>City not found. Please try again later!.</p>
+            <div class="recent-searches" id="recent-searches"></div>
+
+            <div class="error-message" id="error-message">
+                <p>⚠️ <span id="error-text">City not found. Try again.</span></p>
+            </div>
+
+            <div class="loading-spinner">
+                <div class="skeleton skeleton-icon"></div>
+                <div class="skeleton skeleton-temp"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton-grid">
+                    <div class="skeleton skeleton-detail"></div>
+                    <div class="skeleton skeleton-detail"></div>
+                    <div class="skeleton skeleton-detail"></div>
+                    <div class="skeleton skeleton-detail"></div>
+                </div>
             </div>
 
             <div class="weather-content">
@@ -57,59 +58,29 @@
                     </div>
                     <h2 class="city-name">Search for a city</h2>
                     <p class="weather-description">--</p>
+                    <p class="local-time" id="local-time"></p>
                 </div>
 
                 <div class="weather-details">
                     <div class="detail-card">
-                        <div class="detail-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-                            </svg>
-                        </div>
                         <div class="detail-info">
                             <span class="detail-value" id="humidity">--%</span>
                             <span class="detail-label">Humidity</span>
                         </div>
                     </div>
-
                     <div class="detail-card">
-                        <div class="detail-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
-                            </svg>
-                        </div>
                         <div class="detail-info">
                             <span class="detail-value" id="wind-speed">-- km/h</span>
-                            <span class="detail-label">Wind Speed</span>
+                            <span class="detail-label">Wind</span>
                         </div>
                     </div>
-
                     <div class="detail-card">
-                        <div class="detail-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="5"></circle>
-                                <line x1="12" y1="1" x2="12" y2="3"></line>
-                                <line x1="12" y1="21" x2="12" y2="23"></line>
-                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                                <line x1="1" y1="12" x2="3" y2="12"></line>
-                                <line x1="21" y1="12" x2="23" y2="12"></line>
-                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                            </svg>
-                        </div>
                         <div class="detail-info">
                             <span class="detail-value" id="feels-like">--°</span>
                             <span class="detail-label">Feels Like</span>
                         </div>
                     </div>
-
                     <div class="detail-card">
-                        <div class="detail-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M2 12h20M2 12c0-5.523 4.477-10 10-10s10 4.477 10 10M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10"></path>
-                            </svg>
-                        </div>
                         <div class="detail-info">
                             <span class="detail-value" id="pressure">-- hPa</span>
                             <span class="detail-label">Pressure</span>
@@ -119,14 +90,8 @@
 
                 <div class="forecast-section">
                     <h3 class="forecast-title">5-Day Forecast</h3>
-                    <div class="forecast-container" id="forecast">
-                        <!-- Forecast items will be inserted here -->
-                    </div>
+                    <div class="forecast-container" id="forecast"></div>
                 </div>
-            </div>
-
-            <div class="loading-spinner">
-                <div class="spinner"></div>
             </div>
         </div>
     </div>
