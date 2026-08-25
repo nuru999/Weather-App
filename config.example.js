@@ -1,3 +1,0 @@
-window.WEATHER_APP_CONFIG = {
-  apiKey: 'YOUR_OPENWEATHER_API_KEY'
-};
