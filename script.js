@@ -1,4 +1,4 @@
-const apiKey = 'dc0c35edbf982768ac67930df6f7f91b';
+const apiKey = window.WEATHER_APP_CONFIG?.apiKey || '';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast';
 
@@ -96,8 +96,16 @@ function toggleUnit() {
 }
 
 /* ===== API CALLS ===== */
+function hasConfiguredApiKey() {
+    if (!apiKey || apiKey === 'YOUR_OPENWEATHER_API_KEY') {
+        showError('Weather API key is not configured. Copy config.example.js to config.js and add your local key.');
+        return false;
+    }
+    return true;
+}
+
 async function getWeather(city) {
-    if (isFetching) return;
+    if (!hasConfiguredApiKey() || isFetching) return;
     isFetching = true;
     showLoading();
     
@@ -122,7 +130,7 @@ async function getWeather(city) {
 }
 
 async function getWeatherByCoords(lat, lon) {
-    if (isFetching) return;
+    if (!hasConfiguredApiKey() || isFetching) return;
     isFetching = true;
     showLoading();
     
@@ -143,6 +151,7 @@ async function getWeatherByCoords(lat, lon) {
 }
 
 async function getForecast(city) {
+    if (!hasConfiguredApiKey()) return;
     try {
         const res = await fetch(`${forecastUrl}?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`);
         if (!res.ok) throw new Error();
@@ -154,6 +163,7 @@ async function getForecast(city) {
 }
 
 async function getForecastByCoords(lat, lon) {
+    if (!hasConfiguredApiKey()) return;
     try {
         const res = await fetch(`${forecastUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
         if (!res.ok) throw new Error();
