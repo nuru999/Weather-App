@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Atmosphere Weather Application</title>
+  <desc id="desc">Weather dashboard project banner</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0C4A6E"/>
+      <stop offset=".52" stop-color="#0369A1"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#FFFFFF" opacity=".05"/></pattern>
+    <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020617" flood-opacity=".38"/></filter>
+  </defs>
+  <rect width="1200" height="360" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="360" rx="28" fill="url(#dots)"/>
+  <circle cx="1080" cy="35" r="210" fill="#FFFFFF" opacity=".04"/>
+  <circle cx="1050" cy="360" r="240" fill="#C4B5FD" opacity=".045"/>
+
+  <g transform="translate(76 74)">
+    <rect width="138" height="138" rx="34" fill="#FFFFFF" opacity=".1"/>
+    <circle cx="78" cy="55" r="30" fill="url(#sun)"/>
+    <g stroke="#FDE68A" stroke-width="6" stroke-linecap="round">
+      <path d="M78 14v-8M78 104v-8M37 55h-9M127 55h-9M49 26l-7-7M114 91l-7-7M107 26l7-7"/>
+    </g>
+    <path d="M24 102c0-18 16-31 34-27 7-15 29-18 41-5 21-4 37 11 37 29 0 17-13 29-31 29H52c-16 0-28-11-28-26Z" fill="#E0F2FE"/>
+  </g>
+
+  <text x="246" y="110" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#BAE6FD">ATMOSPHERE</text>
+  <text x="246" y="169" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="50" font-weight="800" fill="#FFFFFF">Weather Application</text>
+  <text x="246" y="213" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" fill="#E0F2FE">Current conditions, forecasts and local weather search.</text>
+
+  <g transform="translate(246 255)" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" font-weight="650" fill="#F0F9FF">
+    <rect width="126" height="40" rx="20" fill="#FFFFFF" opacity=".1"/><circle cx="23" cy="20" r="5" fill="#7DD3FC"/><text x="39" y="26">JavaScript</text>
+    <g transform="translate(138)"><rect width="120" height="40" rx="20" fill="#FFFFFF" opacity=".1"/><circle cx="23" cy="20" r="5" fill="#BAE6FD"/><text x="39" y="26">Forecasts</text></g>
+    <g transform="translate(270)"><rect width="126" height="40" rx="20" fill="#FFFFFF" opacity=".1"/><circle cx="23" cy="20" r="5" fill="#C4B5FD"/><text x="39" y="26">Responsive</text></g>
+  </g>
+
+  <g transform="translate(912 84)" filter="url(#shadow)">
+    <rect width="220" height="204" rx="24" fill="#102A43" stroke="#BAE6FD" stroke-opacity=".3"/>
+    <text x="26" y="40" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" fill="#BAE6FD">NAIROBI</text>
+    <text x="26" y="91" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="44" font-weight="800" fill="#FFFFFF">24°</text>
+    <circle cx="164" cy="69" r="27" fill="url(#sun)"/>
+    <rect x="26" y="119" width="168" height="10" rx="5" fill="#305A75"/>
+    <rect x="26" y="145" width="74" height="36" rx="9" fill="#0EA5E9" opacity=".55"/>
+    <rect x="111" y="145" width="83" height="36" rx="9" fill="#8B5CF6" opacity=".5"/>
+  </g>
+</svg>
