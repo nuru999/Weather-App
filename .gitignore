@@ -1,0 +1,1 @@
+config.js\n.env\n.env.*\n!.env.example\n
