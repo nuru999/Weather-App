@@ -4,7 +4,7 @@
  */
 
 const WeatherAPI = (() => {
-  const API_KEY = 'dc0c35edbf982768ac67930df6f7f91b';
+  const API_KEY = window.WEATHER_APP_CONFIG?.apiKey || '';
   const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
   /**
