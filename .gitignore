@@ -1,1 +1,4 @@
-config.js\n.env\n.env.*\n!.env.example\n
+config.js
+.env
+.env.*
+!.env.example
